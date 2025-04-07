@@ -166,4 +166,4 @@ ggplot(plot_data, aes(x = Score, y = Year, group = Country)) +
   )
 
 
-ggsave("dgi_norway_plot.png", width = 10, height = 6, dpi = 300)
+#ggsave("dgi_norway_plot.png", width = 10, height = 6, dpi = 300)
