@@ -1,9 +1,6 @@
 library(tidyverse)
 
-# -- STEP 1: Read in 2019 and 2023 OURData scores (assumes you've already done this) --
-
-# Example:
-# ourdata_clean <- your merged and cleaned dataset with country, year, score
+# -- STEP 1: Compute composite index and clean data ----------------------------
 
 ourdata_clean <- ourdata_2019_2023 %>%
   mutate(
@@ -21,9 +18,7 @@ ourdata_clean <- ourdata_2019_2023 %>%
     gov_support_2023 = government_support_to_data_reuse
   )
 
-
-
-# -- STEP 2: Transform to long format for plotting --
+# -- STEP 2: Long format for plotting ------------------------------------------
 
 plot_data <- ourdata_clean %>%
   select(country, ourdata_index_2019, ourdata_index_2023) %>%
@@ -35,8 +30,7 @@ plot_data <- ourdata_clean %>%
   ) %>%
   mutate(year = as.numeric(year))
 
-
-# -- STEP 3: Dynamically determine countries to include -------------------------
+# -- STEP 3: Include countries scoring higher than Norway ----------------------
 
 norway_scores <- plot_data %>%
   filter(country == "Norway") %>%
@@ -52,7 +46,7 @@ focus_countries <- plot_data %>%
 plot_data <- plot_data %>%
   filter(country %in% focus_countries)
 
-# -- STEP 4: Order countries by 2019 rank (descending) --------------------------
+# -- STEP 4: Order countries by 2019 rank --------------------------------------
 
 score_order_2019 <- plot_data %>%
   filter(year == 2019) %>%
@@ -66,7 +60,7 @@ plot_data <- plot_data %>%
                         if_else(country == "Denmark", 1.8, 1))
   )
 
-# -- STEP 5: Calculate Norway ranks ---------------------------------------------
+# -- STEP 5: Norway rank labels ------------------------------------------------
 
 norway_2019_rank <- plot_data %>%
   filter(year == 2019) %>%
@@ -82,7 +76,9 @@ norway_2023_rank <- plot_data %>%
   filter(country == "Norway") %>%
   pull(rank)
 
-# -- STEP 6: Define country colors ----------------------------------------------
+# -- STEP 6: Define country colors and legend filter ---------------------------
+
+highlight_countries <- c("Korea", "France", "Ireland", "Norway", "Denmark")
 
 country_colors <- c(
   "Norway"   = "#d73027",
@@ -92,12 +88,11 @@ country_colors <- c(
   "Ireland"  = "#228B22"
 )
 
-# Fill in the rest with grey
+# Fill the rest with grey
 missing_countries <- setdiff(levels(plot_data$country), names(country_colors))
 country_colors <- c(country_colors, setNames(rep("grey80", length(missing_countries)), missing_countries))
 
-# -- STEP 7: Plot ---------------------------------------------------------------
-
+# -- STEP 7: Plot --------------------------------------------------------------
 ggplot(plot_data, aes(x = score, y = year, group = country)) +
   geom_line(aes(color = country, linewidth = linewidth)) +
   geom_point(aes(color = country), size = 3) +
@@ -111,13 +106,14 @@ ggplot(plot_data, aes(x = score, y = year, group = country)) +
   ) +
   geom_text(
     data = plot_data %>% filter(country == "Norway", year == 2023),
-    aes(label = paste0(norway_2023_rank, ". plass")),
+    aes(x = 0.5, label = paste0(norway_2023_rank, ". plass")),
     color = "#d73027", size = 3,
-    hjust = -3, vjust = 1.5
+    vjust = -1
   ) +
   
   scale_color_manual(
     values = country_colors,
+    breaks = highlight_countries,
     guide = guide_legend(ncol = 1)
   ) +
   scale_linewidth_identity() +
@@ -126,6 +122,10 @@ ggplot(plot_data, aes(x = score, y = year, group = country)) +
     breaks = c(2019, 2023),
     limits = c(2018.8, 2023.4)
   ) +
+  scale_x_continuous(
+    limits = c(0, 1),
+    expand = c(0, 0)
+) +
   labs(
     title = "OECD OURData-indeks (2019–2023)",
     subtitle = "Norges posisjon blant ledende land",
@@ -149,3 +149,9 @@ ggplot(plot_data, aes(x = score, y = year, group = country)) +
     plot.subtitle = element_text(size = 13, hjust = 0.5)
   )
 
+ggsave(
+  filename = "ourdata_norway_trend_2019_2023.png",
+  width = 10,
+  height = 6,
+  dpi = 300
+)

@@ -81,10 +81,9 @@ country_names <- c("NOR" = "Norge", "DNK" = "Danmark", "KOR" = "Sør-Korea",
 # Set the country order as a factor
 combined_data$Country <- factor(combined_data$Country, levels = c("NOR", "DNK", "KOR", "GBR", "COL"))
 
-# Plot the stacked bar for each country, year by year, with country names below the x-axis
 ggplot(combined_data, aes(x = Country, y = Scaled_Score, fill = Dimension)) +
-  geom_bar(stat = "identity", position = "stack") +  # Stack the dimensions
-  facet_wrap(~ Year, scales = "free_x") +  # Separate plots for each year
+  geom_bar(stat = "identity", position = "stack") +
+  facet_wrap(~ Year, scales = "free_x") +
   scale_fill_manual(values = c(
     "Digital_by_Design" = "#d73027", 
     "Gov_as_Platform" = "#4575b4", 
@@ -102,16 +101,17 @@ ggplot(combined_data, aes(x = Country, y = Scaled_Score, fill = Dimension)) +
   ) +
   theme_minimal(base_size = 14) +
   theme(
-    axis.text.x = element_text(angle = 0, hjust = 0.5),  # Make country names horizontal
+    axis.text.x = element_text(angle = 0, hjust = 0.5),
     panel.grid.major.y = element_line(color = "grey80"),
     panel.grid.minor = element_blank(),
-    legend.position = "top",  # Position the legend at the top
-    plot.title = element_text(hjust = 0.5)  # Center the title
+    legend.position = "top",
+    plot.title = element_text(hjust = 0.5)
   ) +
-  # Show dimension scores and scaled scores inside the bars
-  geom_text(aes(label = sprintf("%.3f (%-.3f)", Score, Scaled_Score)), 
-            position = position_stack(vjust = 0.5), size = 3.5) +  # Smaller text for labels
-  # Add country names below the x-axis
+  # One-line label inside bars
+  geom_text(aes(label = sprintf("%.3f (%.3f)", Score, Scaled_Score)), 
+            position = position_stack(vjust = 0.5), size = 3.5) +
+  # Country names below bars
   geom_text(aes(x = Country, y = -0.02, label = country_names[Country]), 
-            size = 4, color = "black", vjust = 1)  # Country names below x-axis
-
+            size = 4, color = "black", vjust = 1) +
+  # Add horizontal dashed line at y = 1
+  geom_hline(yintercept = 1, linetype = "dashed", color = "darkgray", linewidth = 0.6)
