@@ -1,13 +1,17 @@
 library(tidyverse)
 library(RColorBrewer)
 
-# Color palette for subdimensions
-sub_palette <- brewer.pal(8, "Set2")[1:3]
+color_tilgjengelighet <- "#d73027"  # Red
+color_tilgang <- "#4575b4"          # Blue
+color_stotte <- "#1a9850"           # Green
+
+sub_palette <- RColorBrewer::brewer.pal(8, "Set2")[1:3]
+
 
 # ---- PLOT: Tilgjengelighet ----
 
 plot_tilgjengelighet <- ggplot(availability, aes(x = country_nb, y = scaled_score, fill = label)) +
-  geom_col(position = "stack") +
+  geom_col(position = "stack", color = color_tilgjengelighet, linewidth = 0.6) +
   scale_fill_manual(values = sub_palette) +
   labs(
     title = "OURData 2023 – Tilgjengelighet",
@@ -23,19 +27,13 @@ plot_tilgjengelighet <- ggplot(availability, aes(x = country_nb, y = scaled_scor
     plot.background = element_rect(fill = "white", color = NA)
   )
 
-ggsave(
-  filename = "ourdata_2023_tilgjengelighet.png",
-  plot = plot_tilgjengelighet,
-  width = 10,
-  height = 6,
-  dpi = 300,
-  bg = "white"
-)
+ggsave("ourdata_2023_tilgjengelighet.png", plot = plot_tilgjengelighet, width = 10, height = 6, dpi = 300, bg = "white")
+
 
 # ---- PLOT: Tilgang ----
 
 plot_tilgang <- ggplot(accessibility, aes(x = country_nb, y = scaled_score, fill = label)) +
-  geom_col(position = "stack") +
+  geom_col(position = "stack", color = color_tilgang, linewidth = 0.6) +
   scale_fill_manual(values = sub_palette) +
   labs(
     title = "OURData 2023 – Tilgang",
@@ -51,19 +49,13 @@ plot_tilgang <- ggplot(accessibility, aes(x = country_nb, y = scaled_score, fill
     plot.background = element_rect(fill = "white", color = NA)
   )
 
-ggsave(
-  filename = "ourdata_2023_tilgang.png",
-  plot = plot_tilgang,
-  width = 10,
-  height = 6,
-  dpi = 300,
-  bg = "white"
-)
+ggsave("ourdata_2023_tilgang.png", plot = plot_tilgang, width = 10, height = 6, dpi = 300, bg = "white")
+
 
 # ---- PLOT: Myndighetsstøtte ----
 
 plot_stotte <- ggplot(support, aes(x = country_nb, y = scaled_score, fill = label)) +
-  geom_col(position = "stack") +
+  geom_col(position = "stack", color = color_stotte, linewidth = 0.6) +
   scale_fill_manual(values = sub_palette) +
   labs(
     title = "OURData 2023 – Myndighetsstøtte til gjenbruk",
@@ -79,14 +71,7 @@ plot_stotte <- ggplot(support, aes(x = country_nb, y = scaled_score, fill = labe
     plot.background = element_rect(fill = "white", color = NA)
   )
 
-ggsave(
-  filename = "ourdata_2023_stotte.png",
-  plot = plot_stotte,
-  width = 10,
-  height = 6,
-  dpi = 300,
-  bg = "white"
-)
+ggsave("ourdata_2023_stotte.png", plot = plot_stotte, width = 10, height = 6, dpi = 300, bg = "white")
 
 
 write_csv(availability, "ourdata_2023_tilgjengelighet.csv")

@@ -50,7 +50,7 @@ denmark_data <- denmark_data %>%
   left_join(country_flags, by = "Country")
 
 # Create the plot
-ggplot() +
+dgi_plot_linear <- ggplot() +
   # Plot historical data for Norway, South Korea, and Denmark
   geom_point(data = norway_data, aes(x = Year, y = Score), color = 'red', size = 3) +
   geom_point(data = sk_data, aes(x = Year, y = Score), color = 'orange', size = 3) +
@@ -85,8 +85,9 @@ ggplot() +
   
   # Labels and titles
   labs(
-    title = "Lineær prognose av DGI-Indeks",
-    subtitle = "Basert på historisk data (2019, 2023), gult: Korea, rødt: Norge, grønt: Danmark",
+    title = "Illustrasjon av tenkt utvikling i DGI-score",
+    subtitle = "Basert på 2019 og 2023. Vekst projisert lineært. NB: Metodikkendring → ikke direkte sammenlignbart."
+,
     x = "År",
     y = "DGI Score"
   ) +
@@ -102,4 +103,4 @@ ggplot() +
 
 
 
-ggsave("dgi_linear_prediction.jpeg", width = 10, height = 6, dpi = 300)
+ggsave("dgi_plot_linear.png", plot = dgi_plot_linear, width = 10, height = 6, dpi = 300, bg = "white")

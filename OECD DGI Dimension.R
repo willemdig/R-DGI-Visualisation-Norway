@@ -4,6 +4,8 @@ library(tidyverse)
 #Character standard
 Sys.setlocale("LC_CTYPE", "Norwegian_Norway.UTF-8")
 
+data_2019_all_countries <- read_csv("OECD_DGI_Full_2019.csv")
+data_2023_all_countries <- read_csv("OECD_DGI_2023_Full.csv")
 # Read the 2019 and 2023 data for Norway, Denmark, UK, SK, and Colombia
 countries <- c("NOR", "DNK", "GBR", "KOR", "COL")
 data_2019 <- read_csv("OECD_DGI_Full_2019.csv") %>%
