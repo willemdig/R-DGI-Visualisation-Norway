@@ -1,0 +1,16 @@
+country,indicator,raw_score,parent_score,total_raw,share,scaled_score,dimension,label,country_nb
+DNK,content_of_the_open_by_default_policy,0.73,0.73,2.2,0.3318181818181818,0.2422272727272727,Tilgjengelighet,Policy for åpenhet som standard,Danmark
+DNK,stakeholder_engagement_for_data_release,0.73,0.73,2.2,0.3318181818181818,0.2422272727272727,Tilgjengelighet,Brukerinvolvering for publisering,Danmark
+DNK,implementation,0.74,0.73,2.2,0.3363636363636363,0.2455454545454545,Tilgjengelighet,Implementering av tilgjengelighet,Danmark
+FRA,content_of_the_open_by_default_policy,1,0.89,2.6799999999999997,0.373134328358209,0.332089552238806,Tilgjengelighet,Policy for åpenhet som standard,Frankrike
+FRA,stakeholder_engagement_for_data_release,0.86,0.89,2.6799999999999997,0.32089552238805974,0.28559701492537315,Tilgjengelighet,Brukerinvolvering for publisering,Frankrike
+FRA,implementation,0.82,0.89,2.6799999999999997,0.30597014925373134,0.2723134328358209,Tilgjengelighet,Implementering av tilgjengelighet,Frankrike
+IRE,content_of_the_open_by_default_policy,0.88,0.66,1.97,0.4467005076142132,0.29482233502538074,Tilgjengelighet,Policy for åpenhet som standard,Irland
+IRE,stakeholder_engagement_for_data_release,0.5,0.66,1.97,0.25380710659898476,0.16751269035532995,Tilgjengelighet,Brukerinvolvering for publisering,Irland
+IRE,implementation,0.59,0.66,1.97,0.29949238578680204,0.19766497461928936,Tilgjengelighet,Implementering av tilgjengelighet,Irland
+KOR,content_of_the_open_by_default_policy,0.94,0.84,2.52,0.37301587301587297,0.3133333333333333,Tilgjengelighet,Policy for åpenhet som standard,Sør-Korea
+KOR,stakeholder_engagement_for_data_release,0.77,0.84,2.52,0.3055555555555556,0.25666666666666665,Tilgjengelighet,Brukerinvolvering for publisering,Sør-Korea
+KOR,implementation,0.81,0.84,2.52,0.32142857142857145,0.27,Tilgjengelighet,Implementering av tilgjengelighet,Sør-Korea
+NOR,content_of_the_open_by_default_policy,0.83,0.65,1.96,0.423469387755102,0.2752551020408163,Tilgjengelighet,Policy for åpenhet som standard,Norge
+NOR,stakeholder_engagement_for_data_release,0.5,0.65,1.96,0.25510204081632654,0.16581632653061226,Tilgjengelighet,Brukerinvolvering for publisering,Norge
+NOR,implementation,0.63,0.65,1.96,0.32142857142857145,0.20892857142857146,Tilgjengelighet,Implementering av tilgjengelighet,Norge

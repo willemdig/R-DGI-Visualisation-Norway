@@ -188,3 +188,7 @@ ggsave(
   dpi = 300
 )
 
+
+write_csv(ourdata_2023, "ourdata_2023_full.csv")
+write_csv(ourdata_2019, "ourdata_2019_full.csv")
+
