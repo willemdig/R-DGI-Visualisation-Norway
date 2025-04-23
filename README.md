@@ -1,4 +1,4 @@
-This repository includes data sourced from publicly available OECD publications and dashboards. All rights remain with the OECD. The data is shared here strictly for non-commercial, analytical purposes.
+This repository contains unmodified CSV files copied from annexes in publicly available OECD reports. The data is presented for convenience only, as a supplement to a report written for analytical purposes. All rights remain with the OECD.
 
 Data sources:
 
