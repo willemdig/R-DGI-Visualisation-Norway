@@ -1,0 +1,16 @@
+country,indicator,raw_score,parent_score,total_raw,share,scaled_score,dimension,label,country_nb
+DNK,data_promotion_initiatives_and_partnerships,0.8,0.57,1.72,0.4651162790697675,0.2651162790697674,Myndighetsstøtte,Initiativer og partnerskap,Danmark
+DNK,data_literacy_programmes_in_government,0.75,0.57,1.72,0.436046511627907,0.24854651162790695,Myndighetsstøtte,Datakompetanse i staten,Danmark
+DNK,monitoring_impact,0.17,0.57,1.72,0.09883720930232559,0.05633720930232558,Myndighetsstøtte,Måling av effekt,Danmark
+FRA,data_promotion_initiatives_and_partnerships,0.99,0.75,2.24,0.44196428571428564,0.33147321428571425,Myndighetsstøtte,Initiativer og partnerskap,Frankrike
+FRA,data_literacy_programmes_in_government,0.75,0.75,2.24,0.33482142857142855,0.2511160714285714,Myndighetsstøtte,Datakompetanse i staten,Frankrike
+FRA,monitoring_impact,0.5,0.75,2.24,0.2232142857142857,0.16741071428571427,Myndighetsstøtte,Måling av effekt,Frankrike
+IRE,data_promotion_initiatives_and_partnerships,0.77,0.75,2.24,0.34375,0.2578125,Myndighetsstøtte,Initiativer og partnerskap,Irland
+IRE,data_literacy_programmes_in_government,0.72,0.75,2.24,0.3214285714285714,0.24107142857142855,Myndighetsstøtte,Datakompetanse i staten,Irland
+IRE,monitoring_impact,0.75,0.75,2.24,0.33482142857142855,0.2511160714285714,Myndighetsstøtte,Måling av effekt,Irland
+KOR,data_promotion_initiatives_and_partnerships,1,1,3,0.3333333333333333,0.3333333333333333,Myndighetsstøtte,Initiativer og partnerskap,Sør-Korea
+KOR,data_literacy_programmes_in_government,1,1,3,0.3333333333333333,0.3333333333333333,Myndighetsstøtte,Datakompetanse i staten,Sør-Korea
+KOR,monitoring_impact,1,1,3,0.3333333333333333,0.3333333333333333,Myndighetsstøtte,Måling av effekt,Sør-Korea
+NOR,data_promotion_initiatives_and_partnerships,0.52,0.38,1.1500000000000001,0.4521739130434782,0.1718260869565217,Myndighetsstøtte,Initiativer og partnerskap,Norge
+NOR,data_literacy_programmes_in_government,0.46,0.38,1.1500000000000001,0.39999999999999997,0.152,Myndighetsstøtte,Datakompetanse i staten,Norge
+NOR,monitoring_impact,0.17,0.38,1.1500000000000001,0.14782608695652175,0.05617391304347826,Myndighetsstøtte,Måling av effekt,Norge
