@@ -1,5 +1,8 @@
 This repository contains unmodified CSV files copied from annexes in publicly available OECD reports. The data is presented for convenience only, as a supplement to a report written for analytical purposes. All rights remain with the OECD.
 
+This work is not affiliated with or endorsed by any employer.
+
+
 Data sources:
 
     Open, Useful and Re-usable data (OURdata) Index: 2019
